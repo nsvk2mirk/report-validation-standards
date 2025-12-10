@@ -216,7 +216,7 @@ async function downloadCode() {
     
     // List of files to include
     const files = [
-        { name: 'Report_Validation_Standards.html', url: 'Report_Validation_Standards.html' },
+        { name: 'index.html', url: 'index.html' },
         { name: 'presentation-styles.css', url: 'presentation-styles.css' },
         { name: 'presentation-script.js', url: 'presentation-script.js' },
         { name: 'Validation_Checklist.html', url: 'Validation_Checklist.html' },
@@ -252,7 +252,7 @@ async function downloadCode() {
             } catch (error) {
                 console.error(`Error fetching ${file.name}:`, error);
                 // Try to get current page content for HTML file
-                if (file.name === 'Report_Validation_Standards.html') {
+                if (file.name === 'index.html') {
                     zip.file(file.name, document.documentElement.outerHTML);
                     return { success: true, name: file.name };
                 }
