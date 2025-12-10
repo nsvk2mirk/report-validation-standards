@@ -1,0 +1,101 @@
+Basics of Validation for Analytics
+
+Scope:
+
+Reporting Tools: Oracle Analytics Cloud, Power BI
+
+Source Systems (OLTP): Oracle E-Business Suite, Oracle Fusion Cloud
+
+🔧 Technical Validation
+
+These checks ensure the report behaves like a well-trained instrument, not a rogue drummer.
+
+1. Report Navigation
+
+Validate object-to-object navigation paths.
+
+Ensure links, breadcrumbs, menu entries, and dashboard flows lead to the right pages.
+
+Confirm no circular or dead-end navigation loops.
+
+2. Drill Through / Drill Down
+
+Drill Down: Validates hierarchical expansion (e.g., Ledger → Account → Journal → Line).
+
+Drill Through: Confirm passing of parameters to downstream reports.
+
+Ensure filters persist correctly when moving between summary and detail layers.
+
+3. Measure Aggregations
+
+Validate formulas for SUM, AVG, MIN, MAX, COUNT, DISTINCT COUNT.
+
+Confirm aggregation rules match business logic (e.g., revenue net vs. gross, headcount point-in-time vs. average).
+
+Ensure aggregation behavior is consistent across dashboards, visuals, and exports.
+
+🧭 Functional Validation
+
+These checks verify that the report behaves as users expect, not as developers wish.
+
+1. Responsiveness to Dashboard Prompts / Filters
+
+Validate slicer behavior for multi-select, default values, cascading prompts.
+
+Ensure applying filters updates all dependent visuals and KPIs.
+
+Confirm performance is reasonable under typical filter combinations.
+
+2. Measure Value Validation (Summary vs. Drill Reports)
+
+Verify that totals shown in summary dashboards match the roll-up of drill reports.
+
+Confirm that subtotals obey business hierarchies and time dimensions.
+
+Check Grand Totals vs. SUM of Rows (common trap!).
+
+🧱 Data Integrity Validation
+
+This ensures the report’s story isn’t fiction.
+
+1. Validity of Data Based on Report Definition
+
+Check column-level definitions against business metadata.
+
+Validate joins between subject areas or datasets.
+
+Ensure orphaned records are excluded unless explicitly expected.
+
+Confirm proper handling of nulls, effective dates, primary keys.
+
+🎯 Data Accuracy Validation
+
+This is the final face-off: the report vs. the source (OLTP).
+
+1. Comparison with Source Database
+
+Choose a fixed set of common parameters (e.g., date, BU, ledger, customer, supplier).
+
+Pull the equivalent query directly from EBS/Fusion Cloud tables.
+
+Validate fact values at:
+
+Transaction level
+
+Daily/Monthly summary
+
+Ledger/Balancing segment
+
+Validate dimensional conformance (customer, item, employee, period, account).
+
+2. Edge Cases
+
+Canceled transactions
+
+Backdated entries
+
+Effective-date based changes
+
+Multi-currency conversions
+
+Transaction corrections and reversals

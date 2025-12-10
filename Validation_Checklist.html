@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Validation Checklist - Top 10 Suppliers</title>
+    <link rel="stylesheet" href="checklist-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📋 Report Validation Checklist</h1>
+            <div class="report-info">
+                <h2>Report: Top 10 Suppliers</h2>
+                <div class="report-meta">
+                    <span class="meta-item">📊 Reporting Tool: <select id="reporting-tool">
+                        <option value="powerbi">Power BI</option>
+                        <option value="oac">Oracle Analytics Cloud</option>
+                    </select></span>
+                    <span class="meta-item">📅 Date: <input type="date" id="validation-date"></span>
+                    <span class="meta-item">👤 Validator: <input type="text" id="validator-name" placeholder="Your Name"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Add New Test Case Form -->
+        <div class="add-test-case-section">
+            <button class="toggle-btn" onclick="toggleAddForm()">
+                <span>+</span> Add New Test Case
+            </button>
+            <div class="add-form" id="add-form" style="display: none;">
+                <h3>Add New Test Case</h3>
+                <form id="test-case-form">
+                    <div class="form-group">
+                        <label for="test-case-id">Test Case ID *</label>
+                        <input type="text" id="test-case-id" placeholder="e.g., TC-001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-case-title">Test Case Title *</label>
+                        <input type="text" id="test-case-title" placeholder="e.g., Validate Top 10 Suppliers Ranking" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="validation-phase">Validation Phase *</label>
+                        <select id="validation-phase" required>
+                            <option value="">Select Phase</option>
+                            <option value="technical">🔧 Technical Validation</option>
+                            <option value="functional">🧭 Functional Validation</option>
+                            <option value="integrity">🧱 Data Integrity Validation</option>
+                            <option value="accuracy">🎯 Data Accuracy Validation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-case-description">Description</label>
+                        <textarea id="test-case-description" rows="3" placeholder="Detailed description of the test case..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="source-query">Source Query (Oracle EBS/Fusion)</label>
+                        <textarea id="source-query" rows="5" placeholder="SQL query to validate against source system..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="target-query">Target Query (Oracle BI Apps / Data Warehouse)</label>
+                        <textarea id="target-query" rows="5" placeholder="SQL query to validate against data warehouse..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="expected-result">Expected Result</label>
+                        <textarea id="expected-result" rows="3" placeholder="What is the expected outcome?"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Add Test Case</button>
+                        <button type="button" class="btn btn-secondary" onclick="toggleAddForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>Filter Test Cases</h3>
+            <div class="filters">
+                <select id="filter-phase" onchange="filterTestCases()">
+                    <option value="all">All Validation Phases</option>
+                    <option value="technical">🔧 Technical Validation</option>
+                    <option value="functional">🧭 Functional Validation</option>
+                    <option value="integrity">🧱 Data Integrity Validation</option>
+                    <option value="accuracy">🎯 Data Accuracy Validation</option>
+                </select>
+                <select id="filter-status" onchange="filterTestCases()">
+                    <option value="all">All Status</option>
+                    <option value="pending">⏳ Pending</option>
+                    <option value="passed">✅ Passed</option>
+                    <option value="failed">❌ Failed</option>
+                </select>
+                <input type="text" id="search-test" placeholder="🔍 Search test cases..." onkeyup="filterTestCases()">
+            </div>
+        </div>
+
+        <!-- Test Cases Container -->
+        <div class="test-cases-container" id="test-cases-container">
+            <!-- Sample Test Cases will be loaded here -->
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h3>Validation Summary</h3>
+            <div class="summary-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-tests">0</div>
+                    <div class="stat-label">Total Test Cases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="passed-tests">0</div>
+                    <div class="stat-label">Passed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="failed-tests">0</div>
+                    <div class="stat-label">Failed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pending-tests">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="completion-rate">0%</div>
+                    <div class="stat-label">Completion Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Description Section -->
+        <div class="report-description-section">
+            <h3>Report Description</h3>
+            <textarea id="report-description" rows="5" placeholder="Enter detailed report description here... This description will be included in the PDF export."></textarea>
+            <button class="btn btn-primary" onclick="saveReportDescription()" style="margin-top: 10px;">💾 Save Description</button>
+        </div>
+
+        <!-- Export Section -->
+        <div class="export-section">
+            <button class="btn btn-export" onclick="exportToPDF()">📄 Export to PDF</button>
+            <button class="btn btn-export" onclick="exportChecklist()">📥 Export JSON</button>
+            <button class="btn btn-export" onclick="printChecklist()">🖨️ Print Checklist</button>
+        </div>
+    </div>
+
+    <!-- Test Case Modal (for viewing/editing) -->
+    <div class="modal" id="test-case-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- jsPDF Library for PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="checklist-script.js"></script>
+</body>
+</html>
+

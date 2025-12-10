@@ -1,0 +1,739 @@
+/* ============================================
+   Validation Checklist Styles
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #0066CC;
+    --secondary-orange: #FF6600;
+    --accent-green: #00994C;
+    --purple: #9933CC;
+    --red: #DC3545;
+    --dark-text: #212121;
+    --light-bg: #F5F5FA;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 50px var(--shadow-strong);
+    overflow: hidden;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+
+.header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #004499 100%);
+    color: var(--white);
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.report-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.report-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.meta-item select,
+.meta-item input {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.meta-item input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.meta-item select option {
+    color: var(--dark-text);
+}
+
+/* ============================================
+   Add Test Case Section
+   ============================================ */
+
+.add-test-case-section {
+    padding: 30px 40px;
+    background: var(--light-bg);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.toggle-btn {
+    background: linear-gradient(135deg, var(--accent-green), #006633);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 153, 76, 0.3);
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 153, 76, 0.4);
+}
+
+.toggle-btn span {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.add-form {
+    margin-top: 30px;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.add-form h3 {
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: 'Courier New', monospace;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* ============================================
+   Filter Section
+   ============================================ */
+
+.filter-section {
+    padding: 25px 40px;
+    background: var(--white);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.filter-section h3 {
+    color: var(--dark-text);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filters select,
+.filters input {
+    padding: 10px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filters input {
+    flex: 2;
+}
+
+/* ============================================
+   Test Cases Container
+   ============================================ */
+
+.test-cases-container {
+    padding: 30px 40px;
+    background: var(--light-bg);
+    min-height: 400px;
+}
+
+.test-case-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary-blue);
+    position: relative;
+}
+
+.test-case-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px var(--shadow-strong);
+}
+
+.test-case-card.technical {
+    border-left-color: var(--primary-blue);
+}
+
+.test-case-card.functional {
+    border-left-color: var(--secondary-orange);
+}
+
+.test-case-card.integrity {
+    border-left-color: var(--accent-green);
+}
+
+.test-case-card.accuracy {
+    border-left-color: var(--purple);
+}
+
+.test-case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.test-case-id {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.test-case-title {
+    flex: 1;
+    font-size: 1.3rem;
+    color: var(--dark-text);
+    font-weight: 600;
+    min-width: 300px;
+}
+
+.validation-phase-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.validation-phase-badge.technical {
+    background: rgba(0, 102, 204, 0.1);
+    color: var(--primary-blue);
+}
+
+.validation-phase-badge.functional {
+    background: rgba(255, 102, 0, 0.1);
+    color: var(--secondary-orange);
+}
+
+.validation-phase-badge.integrity {
+    background: rgba(0, 153, 76, 0.1);
+    color: var(--accent-green);
+}
+
+.validation-phase-badge.accuracy {
+    background: rgba(153, 51, 204, 0.1);
+    color: var(--purple);
+}
+
+.test-case-description {
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.test-case-queries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.query-box {
+    background: var(--light-bg);
+    border-radius: 10px;
+    padding: 15px;
+    border: 2px solid var(--border-color);
+}
+
+.query-box h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.query-content {
+    background: var(--white);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--dark-text);
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.query-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-copy {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-copy:hover {
+    background: #004499;
+}
+
+.test-case-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+}
+
+.evidence-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.evidence-upload {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.evidence-upload input[type="file"] {
+    display: none;
+}
+
+.evidence-label {
+    background: var(--accent-green);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.evidence-label:hover {
+    background: #006633;
+}
+
+.evidence-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.evidence-item {
+    background: var(--light-bg);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.evidence-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.evidence-item .remove {
+    color: var(--red);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.status-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.status-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.status-btn.pending {
+    background: #FFC107;
+    color: var(--dark-text);
+}
+
+.status-btn.passed {
+    background: var(--accent-green);
+    color: var(--white);
+}
+
+.status-btn.failed {
+    background: var(--red);
+    color: var(--white);
+}
+
+.status-btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-delete {
+    background: var(--red);
+    color: var(--white);
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* ============================================
+   Summary Section
+   ============================================ */
+
+.summary-section {
+    padding: 30px 40px;
+    background: var(--white);
+    border-top: 3px solid var(--primary-blue);
+}
+
+.summary-section h3 {
+    color: var(--dark-text);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-blue), #004499);
+    color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ============================================
+   Report Description Section
+   ============================================ */
+
+.report-description-section {
+    padding: 25px 40px;
+    background: var(--white);
+    border-top: 2px solid var(--border-color);
+}
+
+.report-description-section h3 {
+    color: var(--dark-text);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.report-description-section textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.report-description-section textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* ============================================
+   Export Section
+   ============================================ */
+
+.export-section {
+    padding: 25px 40px;
+    background: var(--light-bg);
+    text-align: center;
+    border-top: 2px solid var(--border-color);
+}
+
+.btn-export {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-export:hover {
+    background: #004499;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #004499;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--border-color);
+    color: var(--dark-text);
+}
+
+.btn-secondary:hover {
+    background: #D0D0D0;
+}
+
+/* ============================================
+   Modal
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--white);
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px var(--shadow-strong);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--red);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 25px 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .report-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .add-test-case-section,
+    .filter-section,
+    .test-cases-container,
+    .summary-section,
+    .export-section {
+        padding: 20px;
+    }
+
+    .test-case-queries {
+        grid-template-columns: 1fr;
+    }
+
+    .test-case-actions {
+        flex-direction: column;
+    }
+}
+
+/* Hidden class for filtering */
+.hidden {
+    display: none !important;
+}
+

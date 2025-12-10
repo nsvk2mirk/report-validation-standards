@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Validation Standards - Data Analytics & AI</title>
+    <link rel="stylesheet" href="presentation-styles.css">
+    <!-- JSZip for download functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="apps-logo.svg" alt="Apps Associates Logo" class="logo-img">
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active" onclick="goToSlide(1); return false;">Home</a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">Overview</a>
+                <a href="#" class="nav-link" onclick="goToSlide(3); return false;">Scope</a>
+                <a href="#" class="nav-link" onclick="goToSlide(4); return false;">Technical</a>
+                <a href="#" class="nav-link" onclick="goToSlide(5); return false;">Functional</a>
+                <a href="#" class="nav-link" onclick="goToSlide(6); return false;">Data Integrity</a>
+                <a href="#" class="nav-link" onclick="goToSlide(7); return false;">Data Accuracy</a>
+                <a href="#" class="nav-link" onclick="goToSlide(8); return false;">Checklist</a>
+                <a href="Validation_Checklist.html" class="nav-link nav-link-external" target="_blank">Validation Checklist</a>
+                <button class="nav-link nav-link-btn" onclick="toggleFullscreen()" title="Enter Fullscreen Presentation Mode">🖥️ Present</button>
+                <button class="nav-link nav-link-btn" onclick="downloadCode()" title="Download Code as ZIP">📥 Download</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slide 1: Home Page -->
+    <section class="slide home-slide active" data-slide="1">
+        <div class="home-container">
+            <div class="home-logo-container">
+                <img src="apps-logo.svg" alt="Apps Associates" class="home-logo animate-fade-in-up">
+            </div>
+            <div class="home-content">
+                <h1 class="home-title animate-fade-in-up-delay">Report Validation Standards</h1>
+                <h2 class="home-subtitle animate-fade-in-up-delay-2">Setting Standards Across Data Analytics & AI</h2>
+                <div class="home-actions animate-fade-in-up-delay-3">
+                    <button class="home-btn" onclick="goToSlide(2); return false;">Get Started</button>
+                    <a href="Validation_Checklist.html" class="home-btn home-btn-secondary" target="_blank">Validation Checklist</a>
+                </div>
+            </div>
+            <div class="decorative-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Overview -->
+    <section class="slide overview-slide" data-slide="2">
+        <div class="slide-header">
+            <h1 class="slide-title animate-slide-in-left">Validation Framework Overview</h1>
+        </div>
+        <div class="overview-grid">
+            <div class="overview-card card-1 animate-scale-in" style="animation-delay: 0.1s">
+                <div class="card-icon">🔧</div>
+                <h3>Technical Validation</h3>
+            </div>
+            <div class="overview-card card-2 animate-scale-in" style="animation-delay: 0.3s">
+                <div class="card-icon">🧭</div>
+                <h3>Functional Validation</h3>
+            </div>
+            <div class="overview-card card-3 animate-scale-in" style="animation-delay: 0.5s">
+                <div class="card-icon">🧱</div>
+                <h3>Data Integrity Validation</h3>
+            </div>
+            <div class="overview-card card-4 animate-scale-in" style="animation-delay: 0.7s">
+                <div class="card-icon">🎯</div>
+                <h3>Data Accuracy Validation</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Scope -->
+    <section class="slide scope-slide" data-slide="3">
+        <div class="slide-header">
+            <h1 class="slide-title animate-slide-in-left">Scope & Reporting Tools</h1>
+        </div>
+        <div class="scope-container">
+            <div class="scope-section animate-slide-in-right" style="animation-delay: 0.2s">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <h2>Reporting Tools</h2>
+                </div>
+                <ul class="scope-list">
+                    <li class="list-item animate-fade-in" style="animation-delay: 0.4s">Oracle Analytics Cloud</li>
+                    <li class="list-item animate-fade-in" style="animation-delay: 0.6s">Power BI</li>
+                </ul>
+            </div>
+            <div class="scope-section animate-slide-in-left" style="animation-delay: 0.8s">
+                <div class="section-header">
+                    <span class="section-icon">💾</span>
+                    <h2>Source Systems (OLTP)</h2>
+                </div>
+                <ul class="scope-list">
+                    <li class="list-item animate-fade-in" style="animation-delay: 1.0s">Oracle E-Business Suite</li>
+                    <li class="list-item animate-fade-in" style="animation-delay: 1.2s">Oracle Fusion Cloud</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Technical Validation -->
+    <section class="slide content-slide tech-slide" data-slide="4">
+        <div class="slide-header tech-header">
+            <h1 class="slide-title-with-icon">
+                <span class="title-icon">🔧</span>
+                Technical Validation
+            </h1>
+            <p class="slide-description">These checks ensure the report behaves like a well-trained instrument, not a rogue drummer.</p>
+        </div>
+        <div class="content-list">
+            <div class="content-item animate-slide-in-left" style="animation-delay: 0.2s">
+                <div class="item-number">1</div>
+                <div class="item-content">
+                    <h3>Report Navigation</h3>
+                    <ul>
+                        <li>Validate object-to-object navigation paths</li>
+                        <li>Ensure links, breadcrumbs, menu entries, and dashboard flows lead to the right pages</li>
+                        <li>Confirm no circular or dead-end navigation loops</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-item animate-slide-in-left" style="animation-delay: 0.4s">
+                <div class="item-number">2</div>
+                <div class="item-content">
+                    <h3>Drill Through / Drill Down</h3>
+                    <ul>
+                        <li>Drill Down: Validates hierarchical expansion (e.g., Ledger → Account → Journal → Line)</li>
+                        <li>Drill Through: Confirm passing of parameters to downstream reports</li>
+                        <li>Ensure filters persist correctly when moving between summary and detail layers</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-item animate-slide-in-left" style="animation-delay: 0.6s">
+                <div class="item-number">3</div>
+                <div class="item-content">
+                    <h3>Measure Aggregations</h3>
+                    <ul>
+                        <li>Validate formulas for SUM, AVG, MIN, MAX, COUNT, DISTINCT COUNT</li>
+                        <li>Confirm aggregation rules match business logic</li>
+                        <li>Ensure aggregation behavior is consistent across dashboards, visuals, and exports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Functional Validation -->
+    <section class="slide content-slide func-slide" data-slide="5">
+        <div class="slide-header func-header">
+            <h1 class="slide-title-with-icon">
+                <span class="title-icon">🧭</span>
+                Functional Validation
+            </h1>
+            <p class="slide-description">These checks verify that the report behaves as users expect, not as developers wish.</p>
+        </div>
+        <div class="content-list">
+            <div class="content-item animate-slide-in-right" style="animation-delay: 0.2s">
+                <div class="item-number">1</div>
+                <div class="item-content">
+                    <h3>Responsiveness to Dashboard Prompts / Filters</h3>
+                    <ul>
+                        <li>Validate slicer behavior for multi-select, default values, cascading prompts</li>
+                        <li>Ensure applying filters updates all dependent visuals and KPIs</li>
+                        <li>Confirm performance is reasonable under typical filter combinations</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-item animate-slide-in-right" style="animation-delay: 0.4s">
+                <div class="item-number">2</div>
+                <div class="item-content">
+                    <h3>Measure Value Validation (Summary vs. Drill Reports)</h3>
+                    <ul>
+                        <li>Verify that totals shown in summary dashboards match the roll-up of drill reports</li>
+                        <li>Confirm that subtotals obey business hierarchies and time dimensions</li>
+                        <li>Check Grand Totals vs. SUM of Rows (common trap!)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Data Integrity Validation -->
+    <section class="slide content-slide integrity-slide" data-slide="6">
+        <div class="slide-header integrity-header">
+            <h1 class="slide-title-with-icon">
+                <span class="title-icon">🧱</span>
+                Data Integrity Validation
+            </h1>
+            <p class="slide-description">This ensures the report's story isn't fiction.</p>
+        </div>
+        <div class="content-list">
+            <div class="content-item animate-scale-in" style="animation-delay: 0.2s">
+                <div class="item-number">1</div>
+                <div class="item-content">
+                    <h3>Validity of Data Based on Report Definition</h3>
+                    <ul>
+                        <li>Check column-level definitions against business metadata</li>
+                        <li>Validate joins between subject areas or datasets</li>
+                        <li>Ensure orphaned records are excluded unless explicitly expected</li>
+                        <li>Confirm proper handling of nulls, effective dates, primary keys</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Data Accuracy Validation -->
+    <section class="slide content-slide accuracy-slide" data-slide="7">
+        <div class="slide-header accuracy-header">
+            <h1 class="slide-title-with-icon">
+                <span class="title-icon">🎯</span>
+                Data Accuracy Validation
+            </h1>
+            <p class="slide-description">This is the final face-off: the report vs. the source (OLTP).</p>
+        </div>
+        <div class="content-list">
+            <div class="content-item animate-slide-in-left" style="animation-delay: 0.2s">
+                <div class="item-number">1</div>
+                <div class="item-content">
+                    <h3>Comparison with Source Database</h3>
+                    <ul>
+                        <li>Choose a fixed set of common parameters (e.g., date, BU, ledger, customer, supplier)</li>
+                        <li>Pull the equivalent query directly from EBS/Fusion Cloud tables</li>
+                        <li>Validate fact values at:
+                            <ul class="nested-list">
+                                <li>Transaction level</li>
+                                <li>Daily/Monthly summary</li>
+                                <li>Ledger/Balancing segment</li>
+                            </ul>
+                        </li>
+                        <li>Validate dimensional conformance (customer, item, employee, period, account)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-item animate-slide-in-right" style="animation-delay: 0.4s">
+                <div class="item-number">2</div>
+                <div class="item-content">
+                    <h3>Edge Cases</h3>
+                    <ul>
+                        <li>Canceled transactions</li>
+                        <li>Backdated entries</li>
+                        <li>Effective-date based changes</li>
+                        <li>Multi-currency conversions</li>
+                        <li>Transaction corrections and reversals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Validation Checklist -->
+    <section class="slide checklist-slide" data-slide="8">
+        <div class="slide-header">
+            <h1 class="slide-title animate-slide-in-left">Validation Checklist Summary</h1>
+        </div>
+        <div class="checklist-container">
+            <div class="checklist-item animate-fade-in-up" style="animation-delay: 0.1s">
+                <div class="check-icon">✓</div>
+                <div class="check-text">Technical: Navigation, Drill-down, Aggregations</div>
+            </div>
+            <div class="checklist-item animate-fade-in-up" style="animation-delay: 0.3s">
+                <div class="check-icon">✓</div>
+                <div class="check-text">Functional: Filters, Measure Values, Summary vs Drill</div>
+            </div>
+            <div class="checklist-item animate-fade-in-up" style="animation-delay: 0.5s">
+                <div class="check-icon">✓</div>
+                <div class="check-text">Data Integrity: Column Definitions, Joins, Null Handling</div>
+            </div>
+            <div class="checklist-item animate-fade-in-up" style="animation-delay: 0.7s">
+                <div class="check-icon">✓</div>
+                <div class="check-text">Data Accuracy: Source Comparison, Edge Cases</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Thank You -->
+    <section class="slide thank-you-slide" data-slide="9">
+        <div class="thank-you-container">
+            <h1 class="thank-you-title animate-bounce-in">Thank You</h1>
+            <h2 class="thank-you-subtitle animate-fade-in-delay">Questions & Discussion</h2>
+            <div class="decorative-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Controls - Removed per user request -->
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <!-- Slide Dots -->
+    <div class="slide-dots">
+        <span class="dot active" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+        <span class="dot" onclick="goToSlide(4)"></span>
+        <span class="dot" onclick="goToSlide(5)"></span>
+        <span class="dot" onclick="goToSlide(6)"></span>
+        <span class="dot" onclick="goToSlide(7)"></span>
+        <span class="dot" onclick="goToSlide(8)"></span>
+        <span class="dot" onclick="goToSlide(9)"></span>
+    </div>
+
+    <script src="presentation-script.js"></script>
+</body>
+</html>
+
