@@ -970,57 +970,306 @@ body:focus {
     }
 }
 
+/* Mobile Navigation Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: var(--apps-bright-blue);
+    color: var(--white);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: auto;
+}
+
 @media (max-width: 768px) {
-    .slide {
-        padding: 30px 20px;
-        padding-bottom: 120px;
-        height: calc(100vh - 70px);
-        top: 70px;
+    /* Mobile Navigation */
+    .mobile-menu-toggle {
+        display: block;
     }
     
     .nav-container {
-        padding: 10px 20px;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .nav-menu {
-        width: 100%;
-        justify-content: center;
-        overflow-x: auto;
-        padding-bottom: 5px;
+        padding: 10px 15px;
         flex-wrap: wrap;
     }
     
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 10px;
+        padding: 10px 0;
+        border-top: 2px solid var(--light-bg);
+    }
+    
+    .nav-menu.mobile-open {
+        display: flex;
+    }
+    
     .nav-link {
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: left;
+        border-radius: 6px;
     }
     
     .logo-img {
-        height: 30px;
+        height: 32px;
     }
     
-    .overview-grid,
-    .scope-container {
-        grid-template-columns: 1fr;
+    /* Slides */
+    .slide {
+        padding: 20px 15px;
+        padding-top: 90px; /* More space for mobile nav */
+        height: calc(100vh - 60px);
+        top: 60px;
     }
     
-    .home-title {
-        font-size: 2.5rem;
-    }
-    
-    .home-subtitle {
-        font-size: 1.5rem;
+    /* Home Page */
+    .home-slide {
+        padding-top: 80px;
+        padding-bottom: 30px;
     }
     
     .home-logo {
-        height: 80px;
+        height: 60px;
+        margin-bottom: 20px;
     }
     
+    .home-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .home-subtitle {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 30px;
+    }
+    
+    .home-actions {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .home-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+    
+    /* Overview Grid */
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .overview-card {
+        padding: 25px 20px;
+    }
+    
+    .card-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+    
+    .overview-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    /* Scope Container */
+    .scope-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .scope-section {
+        padding: 25px 20px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .list-item {
+        font-size: 1.1rem;
+        padding: 12px 0;
+        padding-left: 25px;
+    }
+    
+    /* Content Slides */
+    .slide-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .slide-title-with-icon {
+        font-size: 1.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .title-icon {
+        font-size: 2rem;
+    }
+    
+    .slide-description {
+        font-size: 1rem;
+    }
+    
+    .content-item {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .item-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .item-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .item-content ul li {
+        font-size: 1rem;
+        padding: 6px 0;
+        padding-left: 20px;
+    }
+    
+    /* Query Boxes */
+    .test-case-queries {
+        grid-template-columns: 1fr;
+    }
+    
+    .query-box {
+        padding: 12px;
+    }
+    
+    .query-content {
+        font-size: 0.75rem;
+        max-height: 150px;
+    }
+    
+    /* Checklist */
+    .checklist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .check-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .check-text {
+        font-size: 1.2rem;
+    }
+    
+    /* Slide Dots */
     .slide-dots {
         display: none;
     }
     
+    /* Progress Bar */
+    .progress-bar {
+        height: 3px;
+    }
+    
+    /* Touch-friendly adjustments */
+    .nav-btn,
+    .home-btn,
+    .status-btn {
+        min-height: 44px; /* iOS touch target minimum */
+        min-width: 44px;
+    }
+    
+    /* Text readability */
+    body {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .slide {
+        padding: 15px 10px;
+        padding-top: 85px;
+    }
+    
+    .home-title {
+        font-size: 1.6rem;
+    }
+    
+    .home-subtitle {
+        font-size: 1rem;
+    }
+    
+    .home-logo {
+        height: 50px;
+    }
+    
+    .slide-title {
+        font-size: 1.6rem;
+    }
+    
+    .overview-card {
+        padding: 20px 15px;
+    }
+    
+    .card-icon {
+        font-size: 2.5rem;
+    }
+    
+    .overview-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .content-item {
+        padding: 15px;
+    }
+    
+    .item-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .slide {
+        padding-top: 70px;
+    }
+    
+    .home-slide {
+        padding-top: 60px;
+    }
+    
+    .home-title {
+        font-size: 1.8rem;
+    }
+    
+    .home-subtitle {
+        font-size: 1rem;
+    }
 }
 
