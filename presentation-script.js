@@ -152,15 +152,36 @@ document.querySelectorAll('.slide').forEach(slide => {
 // Mobile Menu Toggle
 function toggleMobileMenu() {
     const navMenu = document.getElementById('nav-menu');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    
     if (navMenu) {
-        navMenu.classList.toggle('mobile-open');
+        const isOpen = navMenu.classList.contains('mobile-open');
+        if (isOpen) {
+            navMenu.classList.remove('mobile-open');
+            if (toggleBtn) {
+                toggleBtn.textContent = '☰';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+        } else {
+            navMenu.classList.add('mobile-open');
+            if (toggleBtn) {
+                toggleBtn.textContent = '✕';
+                toggleBtn.setAttribute('aria-expanded', 'true');
+            }
+        }
     }
 }
 
 function closeMobileMenu() {
     const navMenu = document.getElementById('nav-menu');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    
     if (navMenu) {
         navMenu.classList.remove('mobile-open');
+        if (toggleBtn) {
+            toggleBtn.textContent = '☰';
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        }
     }
 }
 
@@ -168,10 +189,18 @@ function closeMobileMenu() {
 document.addEventListener('click', function(event) {
     const navMenu = document.getElementById('nav-menu');
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
-    if (navMenu && toggleBtn && 
-        !navMenu.contains(event.target) && 
-        !toggleBtn.contains(event.target) &&
+    const navContainer = document.querySelector('.nav-container');
+    
+    if (navMenu && navContainer && 
+        !navContainer.contains(event.target) &&
         navMenu.classList.contains('mobile-open')) {
+        closeMobileMenu();
+    }
+});
+
+// Close mobile menu on window resize (if switching to desktop)
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
         closeMobileMenu();
     }
 });

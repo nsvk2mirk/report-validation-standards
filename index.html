@@ -15,7 +15,7 @@
             <div class="nav-logo">
                 <img src="apps-logo.svg" alt="Apps Associates Logo" class="logo-img">
             </div>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu(); return false;" aria-label="Toggle menu" aria-expanded="false">☰</button>
             <div class="nav-menu" id="nav-menu">
                 <a href="#" class="nav-link active" onclick="goToSlide(1); closeMobileMenu(); return false;">Home</a>
                 <a href="#" class="nav-link" onclick="goToSlide(2); closeMobileMenu(); return false;">Overview</a>

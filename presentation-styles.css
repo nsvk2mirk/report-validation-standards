@@ -61,17 +61,22 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 12px 40px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    position: relative;
 }
 
 .nav-logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+    order: 1; /* Logo first */
 }
 
 .logo-img {
     height: 40px;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -79,6 +84,9 @@ body {
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;
+    order: 3; /* Menu last */
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .nav-link {
@@ -976,32 +984,57 @@ body:focus {
     background: var(--apps-bright-blue);
     color: var(--white);
     border: none;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1.2rem;
-    margin-left: auto;
+    font-size: 1.4rem;
+    line-height: 1;
+    z-index: 1001;
+    order: 2; /* Place after logo, before menu */
 }
 
 @media (max-width: 768px) {
     /* Mobile Navigation */
     .mobile-menu-toggle {
-        display: block;
+        display: block !important;
+        order: 2;
+        margin-left: auto;
     }
     
     .nav-container {
         padding: 10px 15px;
         flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .nav-logo {
+        order: 1;
+        flex-shrink: 0;
+    }
+    
+    .logo-img {
+        height: 32px;
+        max-width: 200px;
+        width: auto;
+        object-fit: contain;
     }
     
     .nav-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
         flex-direction: column;
         gap: 5px;
-        margin-top: 10px;
-        padding: 10px 0;
+        margin-top: 0;
+        padding: 15px;
         border-top: 2px solid var(--light-bg);
+        background: var(--white);
+        box-shadow: 0 4px 10px var(--shadow);
+        z-index: 1000;
+        order: 3;
     }
     
     .nav-menu.mobile-open {
@@ -1010,14 +1043,11 @@ body:focus {
     
     .nav-link {
         font-size: 0.9rem;
-        padding: 10px 15px;
+        padding: 12px 15px;
         width: 100%;
         text-align: left;
         border-radius: 6px;
-    }
-    
-    .logo-img {
-        height: 32px;
+        margin: 0;
     }
     
     /* Slides */
