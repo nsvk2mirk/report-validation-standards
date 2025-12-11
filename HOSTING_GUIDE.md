@@ -101,7 +101,35 @@
 
 ---
 
-### 5. **Surge.sh**
+### 5. **Bitbucket Pages**
+**Best for:** Private repositories and team collaboration
+
+**Steps:**
+1. Create account at [bitbucket.org](https://bitbucket.org)
+2. Create repository and push your code
+3. Go to Repository Settings → Pages
+4. Enable Pages and select branch
+5. Your site is live!
+
+**Pros:**
+- Free private repository hosting
+- Custom domains
+- HTTPS automatic
+- More flexible build options
+- Good for team projects
+
+**Cons:**
+- Less popular than GitHub
+- Different URL format
+- Manual deployment option (can be automatic)
+
+**URL Format:** `https://your-username.bitbucket.io/repository-name/`
+
+**Note:** See `BITBUCKET_PAGES_GUIDE.md` for detailed setup instructions.
+
+---
+
+### 6. **Surge.sh**
 **Best for:** Quick command-line deployment
 
 **Steps:**
