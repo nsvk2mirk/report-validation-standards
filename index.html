@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Report Validation Standards - Data Analytics & AI</title>
     <link rel="stylesheet" href="presentation-styles.css">
     <!-- JSZip for download functionality -->
@@ -15,15 +15,16 @@
             <div class="nav-logo">
                 <img src="apps-logo.svg" alt="Apps Associates Logo" class="logo-img">
             </div>
-            <div class="nav-menu">
-                <a href="#" class="nav-link active" onclick="goToSlide(1); return false;">Home</a>
-                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">Overview</a>
-                <a href="#" class="nav-link" onclick="goToSlide(3); return false;">Scope</a>
-                <a href="#" class="nav-link" onclick="goToSlide(4); return false;">Technical</a>
-                <a href="#" class="nav-link" onclick="goToSlide(5); return false;">Functional</a>
-                <a href="#" class="nav-link" onclick="goToSlide(6); return false;">Data Integrity</a>
-                <a href="#" class="nav-link" onclick="goToSlide(7); return false;">Data Accuracy</a>
-                <a href="#" class="nav-link" onclick="goToSlide(8); return false;">Checklist</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#" class="nav-link active" onclick="goToSlide(1); closeMobileMenu(); return false;">Home</a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); closeMobileMenu(); return false;">Overview</a>
+                <a href="#" class="nav-link" onclick="goToSlide(3); closeMobileMenu(); return false;">Scope</a>
+                <a href="#" class="nav-link" onclick="goToSlide(4); closeMobileMenu(); return false;">Technical</a>
+                <a href="#" class="nav-link" onclick="goToSlide(5); closeMobileMenu(); return false;">Functional</a>
+                <a href="#" class="nav-link" onclick="goToSlide(6); closeMobileMenu(); return false;">Data Integrity</a>
+                <a href="#" class="nav-link" onclick="goToSlide(7); closeMobileMenu(); return false;">Data Accuracy</a>
+                <a href="#" class="nav-link" onclick="goToSlide(8); closeMobileMenu(); return false;">Checklist</a>
                 <a href="Validation_Checklist.html" class="nav-link nav-link-external" target="_blank">Validation Checklist</a>
                 <button class="nav-link nav-link-btn" onclick="toggleFullscreen()" title="Enter Fullscreen Presentation Mode">🖥️ Present</button>
                 <button class="nav-link nav-link-btn" onclick="downloadCode()" title="Download Code as ZIP">📥 Download</button>

@@ -34,6 +34,8 @@ body {
     overflow: hidden;
     background: var(--light-bg);
     height: 100vh;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    touch-action: pan-y; /* Enable vertical scrolling on mobile */
 }
 
 /* ============================================
@@ -59,6 +61,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 12px 40px;
+    flex-wrap: wrap;
 }
 
 .nav-logo {
@@ -165,8 +168,10 @@ body.fullscreen-mode .progress-bar {
     display: none;
     padding: 40px 80px 40px 80px; /* Reduced bottom padding since navigation removed */
     overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scroll */
     transition: opacity 0.5s ease-in-out;
     box-sizing: border-box;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .slide.active {

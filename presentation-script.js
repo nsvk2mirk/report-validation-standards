@@ -149,14 +149,53 @@ document.querySelectorAll('.slide').forEach(slide => {
     slide.style.scrollBehavior = 'smooth';
 });
 
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu) {
+        navMenu.classList.toggle('mobile-open');
+    }
+}
+
+function closeMobileMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu) {
+        navMenu.classList.remove('mobile-open');
+    }
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navMenu = document.getElementById('nav-menu');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    if (navMenu && toggleBtn && 
+        !navMenu.contains(event.target) && 
+        !toggleBtn.contains(event.target) &&
+        navMenu.classList.contains('mobile-open')) {
+        closeMobileMenu();
+    }
+});
+
 // Add click handlers for overview cards to navigate to relevant slides
 document.addEventListener('DOMContentLoaded', function() {
     const overviewCards = document.querySelectorAll('.overview-card');
     if (overviewCards.length >= 4) {
-        overviewCards[0].addEventListener('click', () => goToSlide(4)); // Technical
-        overviewCards[1].addEventListener('click', () => goToSlide(5)); // Functional
-        overviewCards[2].addEventListener('click', () => goToSlide(6)); // Integrity
-        overviewCards[3].addEventListener('click', () => goToSlide(7)); // Accuracy
+        overviewCards[0].addEventListener('click', () => {
+            goToSlide(4);
+            closeMobileMenu();
+        }); // Technical
+        overviewCards[1].addEventListener('click', () => {
+            goToSlide(5);
+            closeMobileMenu();
+        }); // Functional
+        overviewCards[2].addEventListener('click', () => {
+            goToSlide(6);
+            closeMobileMenu();
+        }); // Integrity
+        overviewCards[3].addEventListener('click', () => {
+            goToSlide(7);
+            closeMobileMenu();
+        }); // Accuracy
     }
 });
 
